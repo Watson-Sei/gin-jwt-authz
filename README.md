@@ -1,5 +1,5 @@
 # gin-jwt-authz
-Validate a JWTs `scope` to authorize access to an endpoint. gin-jwt-authz is a Gin middleware/handler inspired by [express-jwt-authz(https://github.com/auth0/express-jwt-authz)
+Validate a JWTs `scope` to authorize access to an endpoint. gin-jwt-authz is a Gin middleware/handler inspired by [express-jwt-authz](https://github.com/auth0/express-jwt-authz)
 
 ## Install 
 ```
