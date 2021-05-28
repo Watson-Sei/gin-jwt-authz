@@ -1,2 +1,2 @@
 # gin-jwt-authz
-Validate the JWT scope to authorize access to an endpoint
+Gin Middleware/Handler for Go, inspired by express-jwt-authz, which validates JWT `scopes` and supports authorization of access to endpoints.
