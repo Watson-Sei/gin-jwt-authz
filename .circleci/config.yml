@@ -7,15 +7,15 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-        keys:
-          - go-mod-v4-{{ checksum "go.sum" }}
+          keys:
+            - go-mod-v4-{{ checksum "go.sum" }}
       - run:
-        name: Install Dependencies
-        command: go get ./...
+          name: Install Dependencies
+          command: go get ./...
       - save_cache:
-        key: go-mod-v4-{{ checksum "go.sum" }}
-        paths:
-          - "/go/pkg/mod"
+          key: go-mod-v4-{{ checksum "go.sum" }}
+          paths:
+            - $GOPATH/pkg/mod
       - run:
-        name: Run tests
-        command: go test -v ./...
+          name: Run tests
+          command: go test -v ./...
