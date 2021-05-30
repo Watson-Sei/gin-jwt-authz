@@ -35,12 +35,8 @@ func main() {
 		})
 	})
 
-	// The conditions are the same as above.
-	router.GET("/sample2", CheckJWT(), jwtAuthz.CheckPermissions([]string{"create:books"}, jwtAuthz.DefaultOptions()), func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{
-			"message": "It has create:books permission.",
-		})
-	})
+	// Success if at least one of the conditions is met.
+	router.GET("/sample2", CheckJWT(), jwtAuthz.CheckPermissions([]string{"create:books"}, jwtAuthz.Options{FailWithError: true, CheckAllScopes: false}))
 
 	router.Run()
 }

@@ -9,14 +9,14 @@ import (
 )
 
 type Options struct {
-	failWithError  bool
-	checkAllScopes bool
+	FailWithError  bool
+	CheckAllScopes bool
 }
 
 func DefaultOptions() Options {
 	return Options{
-		failWithError:  true,
-		checkAllScopes: true,
+		FailWithError:  true,
+		CheckAllScopes: true,
 	}
 }
 
@@ -29,7 +29,7 @@ func CheckPermissions(expectedScopes []string, options Options) gin.HandlerFunc 
 		}
 
 		var allowed bool = false
-		if options.checkAllScopes {
+		if options.CheckAllScopes {
 			allowed = utils.Every(expectedScopes, utils.InterfaceSliceConversion(user.(*jwt.Token).Claims.(jwt.MapClaims)["permissions"].([]interface{})))
 		} else {
 			allowed = utils.Some(expectedScopes, utils.InterfaceSliceConversion(user.(*jwt.Token).Claims.(jwt.MapClaims)["permissions"].([]interface{})))
